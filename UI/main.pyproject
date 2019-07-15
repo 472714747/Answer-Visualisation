@@ -1,0 +1,6 @@
+main.pyproject
+main.py
+mainwindow.cpp
+mainwindow.h
+mainwindow.ui
+resource.qrc

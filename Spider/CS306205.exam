@@ -1,0 +1,799 @@
+<?xml version="1.0"?>
+<!DOCTYPE exam SYSTEM "exam.dtd">
+<!-- serialize from mancs.caa.core at Mon Jun 06 19:08:07 BST 2005 -->
+<exam feedbackMode="NONE" id="CS306205" markingMode="AUTOMATIC" runningTime="7200" totalMarks="60" allImages="true" utilAccent="false" utilGreek="false" utilMaths="false">
+	<courseCode>
+		CS3062
+	</courseCode>
+	<when>
+		Friday June 3rd 2005 2pm - 4pm
+	</when>
+	<rubric>
+		&lt;html&gt;
+		&lt;head&gt;
+		
+		&lt;/head&gt;
+		&lt;body&gt;
+		&lt;hr width=&quot;90%&quot; align=&quot;center&quot;&gt;
+		
+		
+		&lt;p align=&quot;center&quot;&gt;
+		Answer question 1 and two other questions.
+		&lt;/p&gt;
+		&lt;p&gt;
+		
+		&lt;/p&gt;
+		&lt;hr width=&quot;90%&quot; align=&quot;center&quot;&gt;
+		
+		
+		&lt;p align=&quot;center&quot;&gt;
+		The use of electronic calculators is &lt;u&gt;not&lt;/u&gt; permitted.
+		&lt;/p&gt;
+		&lt;p&gt;
+		
+		&lt;/p&gt;
+		&lt;hr width=&quot;90%&quot; align=&quot;center&quot;&gt;
+		&lt;/body&gt;
+		&lt;/html&gt;
+	</rubric>
+	<compositeq labelStyle="SIMPLE" marksAllocated="60" displayFormat="MULTI_PAGE" answerOnly="3">
+		<compositeq labelStyle="SUB_QUESTION" marksAllocated="20" displayFormat="SINGLE_PAGE">
+			<questionText>
+				&lt;html&gt;
+				&lt;head&gt;
+				
+				&lt;/head&gt;
+				&lt;body&gt;
+				&lt;p style=&quot;margin-top: 0&quot;&gt;
+				&lt;font face=&quot;SansSerif&quot;&gt;This question is compulsory&lt;/font&gt;
+				&lt;/p&gt;
+				&lt;/body&gt;
+				&lt;/html&gt;
+			</questionText>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="4" columns="60" rows="6" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Explain the notion of a &lt;b&gt;design pattern&lt;/b&gt;, and
+					why design patterns are important in object-oriented software development.&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="4" columns="60" rows="6" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Briefly explain why the &lt;b&gt;Composite&lt;/b&gt; design
+					pattern plays an important role in the basic data structures of the exam
+					software. Hint: this exam has questions with numbers like 2.1c and 5.2d.&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+				<feedback>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;p style=&quot;margin-top: 0&quot;&gt;
+					
+					&lt;/p&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</feedback>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="2" columns="60" rows="3" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Clearly the &lt;b&gt;Observer&lt;/b&gt; pattern (in the form of
+					the Java Delegation Event Model) would be used in the user interfaces of
+					the project. Suggest a more fundamental role it could perform in the
+					implementation of the Take Exam use case.&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<graphq labelStyle="SIMPLE" marksAllocated="6" previewWidth="150" previewHeight="100">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Draw a UML diagram to illustrate the Observer
+					pattern as applied to this situation.&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+				<oracle serialCounter="10">
+					<simplebox maxConnectors="4">
+						<simpleboxrep x="0" y="0" boxFrameType="RECTANGULAR_FRAME" lineStyle="SINGLE" lineDash="SOLID" lineWeight="THIN">
+							<singlelinelabel attachmentPoint="-1">
+								<graphitemcontent type="FORMATTED_TEXT">
+									<contentstring>
+									</contentstring>
+								</graphitemcontent>
+							</singlelinelabel>
+						</simpleboxrep>
+						<itemid serial="4">
+							<itemidname>
+								class
+							</itemidname>
+						</itemid>
+						<port owningBoxSerial="4">
+						</port>
+						<port owningBoxSerial="4">
+						</port>
+						<port owningBoxSerial="4">
+						</port>
+						<port owningBoxSerial="4">
+						</port>
+					</simplebox>
+					<junctionbox maxConnectors="UNLIMITED_PORTS">
+						<itemid serial="3">
+							<itemidname>
+								JunctionBox
+							</itemidname>
+						</itemid>
+						<junctionboxrep x="0" y="0" />
+					</junctionbox>
+					<simpleconnector>
+						<simpleconnectorrep x="0" y="0" lineStyle="SINGLE" lineDash="SOLID" lineWeight="THIN" sourceEndStyle="NO_END_STYLE" destEndStyle="DIAMOND_END_FILLED_2" />
+						<itemid serial="5">
+							<itemidname>
+								SimpleConnector3
+							</itemidname>
+						</itemid>
+					</simpleconnector>
+					<simpleconnector>
+						<simpleconnectorrep x="0" y="0" lineStyle="SINGLE" lineDash="SOLID" lineWeight="THIN" sourceEndStyle="NO_END_STYLE" destEndStyle="OPEN_ARROW_1" />
+						<itemid serial="7">
+							<itemidname>
+								SimpleConnector4
+							</itemidname>
+						</itemid>
+					</simpleconnector>
+					<simpleconnector>
+						<simpleconnectorrep x="0" y="0" lineStyle="SINGLE" lineDash="SOLID" lineWeight="THIN" sourceEndStyle="NO_END_STYLE" destEndStyle="NO_END_STYLE" />
+						<itemid serial="8">
+							<itemidname>
+								SimpleConnector
+							</itemidname>
+						</itemid>
+					</simpleconnector>
+					<simpleconnector>
+						<simpleconnectorrep x="0" y="0" lineStyle="SINGLE" lineDash="SOLID" lineWeight="THIN" sourceEndStyle="NO_END_STYLE" destEndStyle="DIAMOND_END_UNFILLED_2" />
+						<itemid serial="6">
+							<itemidname>
+								SimpleConnector2
+							</itemidname>
+						</itemid>
+					</simpleconnector>
+					<simpleconnector>
+						<simpleconnectorrep x="0" y="0" lineStyle="SINGLE" lineDash="SOLID" lineWeight="THIN" sourceEndStyle="NO_END_STYLE" destEndStyle="ARROW_UNFILLED_2" />
+						<itemid serial="9">
+							<itemidname>
+								SimpleConnector1
+							</itemidname>
+						</itemid>
+					</simpleconnector>
+				</oracle>
+			</graphq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="4" columns="60" rows="6" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Suggest how two other design patterns might be used
+					in the application&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+				<feedback>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;p style=&quot;margin-top: 0&quot;&gt;
+					
+					&lt;/p&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</feedback>
+			</freeTextq>
+		</compositeq>
+		<compositeq labelStyle="SUB_QUESTION" marksAllocated="20" displayFormat="SINGLE_PAGE">
+			<questionText>
+				&lt;html&gt;
+				&lt;head&gt;
+				
+				&lt;/head&gt;
+				&lt;body&gt;
+				&lt;p style=&quot;margin-top: 0&quot;&gt;
+				
+				&lt;/p&gt;
+				&lt;/body&gt;
+				&lt;/html&gt;
+			</questionText>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="3" columns="60" rows="4" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;&amp;#8220;... a key insight into the UP is that all
+					activities and artifacts &amp;#8230; are optional &amp;#8211; well maybe not the code!&amp;#8221;
+					Explain what Larman means by this.&lt;/font&gt;&lt;br&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="5" columns="60" rows="8" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;In the real project which produced the software you
+					are currently using, there was initially no Glossary. However, we recently
+					decided that we needed one. On the other hand we do not have, and are
+					unlikely to ever have, a Vision document as described in the UP.
+					&lt;br&gt;Describe the circumstances under which these artifacts may reasonably be
+					omitted, and hence explain the decisions above.&lt;br&gt;&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+				<feedback>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;p style=&quot;margin-top: 0&quot;&gt;
+					
+					&lt;/p&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</feedback>
+			</freeTextq>
+			<compositeq labelStyle="SUB_QUESTION" marksAllocated="8" displayFormat="SINGLE_PAGE">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Each of the following terms is ambiguous: suggest
+					two or more alternative terms for each, and note any other properties of
+					these which should be included in a glossary.&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+				<freeTextq labelStyle="SIMPLE" marksAllocated="2" columns="60" rows="3" textStyle="PLAIN_TEXT">
+					<questionText>
+						&lt;html&gt;
+						&lt;head&gt;
+						
+						&lt;/head&gt;
+						&lt;body&gt;
+						&lt;p style=&quot;margin-top: 0&quot;&gt;
+						&lt;font face=&quot;SansSerif&quot;&gt;Exam paper&lt;/font&gt;
+						&lt;/p&gt;
+						&lt;/body&gt;
+						&lt;/html&gt;
+					</questionText>
+				</freeTextq>
+				<freeTextq labelStyle="SIMPLE" marksAllocated="3" columns="60" rows="4" textStyle="PLAIN_TEXT">
+					<questionText>
+						&lt;html&gt;
+						&lt;head&gt;
+						
+						&lt;/head&gt;
+						&lt;body&gt;
+						&lt;p style=&quot;margin-top: 0&quot;&gt;
+						&lt;font face=&quot;SansSerif&quot;&gt;Set of answers&lt;/font&gt;
+						&lt;/p&gt;
+						&lt;/body&gt;
+						&lt;/html&gt;
+					</questionText>
+					<feedback>
+						&lt;html&gt;
+						&lt;head&gt;
+						
+						&lt;/head&gt;
+						&lt;body&gt;
+						&lt;p style=&quot;margin-top: 0&quot;&gt;
+						
+						&lt;/p&gt;
+						&lt;/body&gt;
+						&lt;/html&gt;
+					</feedback>
+				</freeTextq>
+				<freeTextq labelStyle="SIMPLE" marksAllocated="3" columns="60" rows="4" textStyle="PLAIN_TEXT">
+					<questionText>
+						&lt;html&gt;
+						&lt;head&gt;
+						
+						&lt;/head&gt;
+						&lt;body&gt;
+						&lt;p style=&quot;margin-top: 0&quot;&gt;
+						&lt;font face=&quot;SansSerif&quot;&gt;Marks&lt;/font&gt;
+						&lt;/p&gt;
+						&lt;/body&gt;
+						&lt;/html&gt;
+					</questionText>
+					<feedback>
+						&lt;html&gt;
+						&lt;head&gt;
+						
+						&lt;/head&gt;
+						&lt;body&gt;
+						&lt;p style=&quot;margin-top: 0&quot;&gt;
+						
+						&lt;/p&gt;
+						&lt;/body&gt;
+						&lt;/html&gt;
+					</feedback>
+				</freeTextq>
+			</compositeq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="4" columns="60" rows="6" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Give two other examples from the domain of commonly
+					used terms which need to be clarified in this way&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+		</compositeq>
+		<compositeq labelStyle="SUB_QUESTION" marksAllocated="20" displayFormat="SINGLE_PAGE">
+			<questionText>
+				&lt;html&gt;
+				&lt;head&gt;
+				
+				&lt;/head&gt;
+				&lt;body&gt;
+				&lt;p style=&quot;margin-top: 0&quot;&gt;
+				
+				&lt;/p&gt;
+				&lt;/body&gt;
+				&lt;/html&gt;
+			</questionText>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="5" columns="60" rows="8" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Explain &lt;i&gt;why&lt;/i&gt; and &lt;i&gt;when&lt;/i&gt; use cases are
+					typically used in an iterative software development process such as the
+					UP. Why is a set of use cases typically considered more useful than a
+					detailed list of all the features of a system?&lt;/font&gt;&lt;br&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="10" columns="60" rows="12" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Write the main success scenario of the &lt;b&gt;Mark Exam&lt;/b&gt;
+					use case in casual format: no more than 150 words, in paragraphs, not
+					bullet points. You should assume that the examiner gets the data from the
+					exam server at the beginning and returns the marks there at the end, but
+					that the process of marking itself is done offline, using a marking tool
+					like that you&amp;#8217;ve seen in the course. Also assume that an exam may contain
+					a combination of multiple choice, text, and diagram questions&lt;br&gt;&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+				<feedback>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;p style=&quot;margin-top: 0&quot;&gt;
+					
+					&lt;/p&gt;
+					&lt;/body&gt;
+				</feedback>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="5" columns="60" rows="8" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Suggest five important non-functional requirements
+					related to this use case, in at least three &amp;#8220;URPS+&amp;#8221; categories&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+		</compositeq>
+		<compositeq labelStyle="SUB_QUESTION" marksAllocated="20" displayFormat="SINGLE_PAGE">
+			<questionText>
+				&lt;html&gt;
+				&lt;head&gt;
+				
+				&lt;/head&gt;
+				&lt;body&gt;
+				&lt;p style=&quot;margin-top: 0&quot;&gt;
+				
+				&lt;/p&gt;
+				&lt;/body&gt;
+				&lt;/html&gt;
+			</questionText>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="5" columns="60" rows="8" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;What is the purpose of &lt;b&gt;domain modelling&lt;/b&gt;?
+					Your answer should include the relationship between domain classes and
+					design classes, and the factors which influence the amount of effort worth
+					spending on domain modelling&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+				<feedback>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;p style=&quot;margin-top: 0&quot;&gt;
+					
+					&lt;/p&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</feedback>
+			</freeTextq>
+			<graphq labelStyle="SIMPLE" marksAllocated="8" previewWidth="150" previewHeight="100">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Consider the following description of the process
+					of marking traditional paper exam scripts.&lt;br&gt;&lt;br&gt;&amp;#8220;The examiner is given a
+					set of exam scripts and a mark sheet on which to record the marks. Each
+					script contains the answers to the exam from one student, identified by a
+					library card number on the front cover. The front cover also holds the
+					real name of the student (hidden under a sticky flap), the title and
+					course code of the exam, and a table for the examiner to enter the marks.
+					The mark sheet has a row for each student, identified by library card
+					number, with columns for the marks for each question and the total. The
+					examiner marks all the answers for a complete question from all the
+					students. Marks for each sub-question and the question total are written
+					in the margins of the pages of the script. The question totals are
+					transcribed onto the table on the front page of the script and onto the
+					mark sheet. This process is repeated for each question, checking carefully
+					that every page of the script has been inspected. The examiner adds up the
+					marks on the mark sheet to give the totals. All the additions and
+					transcriptions of marks are checked by clerical staff. Once checking is
+					complete, they are entered into a central database.&amp;#8221;&lt;br&gt;&lt;br&gt;Draw a
+					class diagram to represent the significant domain classes suggested by
+					this description and their important relationships and attributes.&lt;/font&gt;&lt;br&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+				<oracle serialCounter="10">
+					<simplebox maxConnectors="4">
+						<simpleboxrep x="0" y="0" boxFrameType="RECTANGULAR_FRAME" lineStyle="SINGLE" lineDash="SOLID" lineWeight="THIN">
+							<singlelinelabel attachmentPoint="-1">
+								<graphitemcontent type="FORMATTED_TEXT">
+									<contentstring>
+									</contentstring>
+								</graphitemcontent>
+							</singlelinelabel>
+						</simpleboxrep>
+						<itemid serial="4">
+							<itemidname>
+								class
+							</itemidname>
+						</itemid>
+						<port owningBoxSerial="4">
+						</port>
+						<port owningBoxSerial="4">
+						</port>
+						<port owningBoxSerial="4">
+						</port>
+						<port owningBoxSerial="4">
+						</port>
+					</simplebox>
+					<junctionbox maxConnectors="UNLIMITED_PORTS">
+						<itemid serial="3">
+							<itemidname>
+								JunctionBox
+							</itemidname>
+						</itemid>
+						<junctionboxrep x="0" y="0" />
+					</junctionbox>
+					<simpleconnector>
+						<simpleconnectorrep x="0" y="0" lineStyle="SINGLE" lineDash="SOLID" lineWeight="THIN" sourceEndStyle="NO_END_STYLE" destEndStyle="DIAMOND_END_FILLED_2" />
+						<itemid serial="5">
+							<itemidname>
+								SimpleConnector3
+							</itemidname>
+						</itemid>
+					</simpleconnector>
+					<simpleconnector>
+						<simpleconnectorrep x="0" y="0" lineStyle="SINGLE" lineDash="SOLID" lineWeight="THIN" sourceEndStyle="NO_END_STYLE" destEndStyle="OPEN_ARROW_1" />
+						<itemid serial="7">
+							<itemidname>
+								SimpleConnector4
+							</itemidname>
+						</itemid>
+					</simpleconnector>
+					<simpleconnector>
+						<simpleconnectorrep x="0" y="0" lineStyle="SINGLE" lineDash="SOLID" lineWeight="THIN" sourceEndStyle="NO_END_STYLE" destEndStyle="NO_END_STYLE" />
+						<itemid serial="8">
+							<itemidname>
+								SimpleConnector
+							</itemidname>
+						</itemid>
+					</simpleconnector>
+					<simpleconnector>
+						<simpleconnectorrep x="0" y="0" lineStyle="SINGLE" lineDash="SOLID" lineWeight="THIN" sourceEndStyle="NO_END_STYLE" destEndStyle="DIAMOND_END_UNFILLED_2" />
+						<itemid serial="6">
+							<itemidname>
+								SimpleConnector2
+							</itemidname>
+						</itemid>
+					</simpleconnector>
+					<simpleconnector>
+						<simpleconnectorrep x="0" y="0" lineStyle="SINGLE" lineDash="SOLID" lineWeight="THIN" sourceEndStyle="NO_END_STYLE" destEndStyle="ARROW_UNFILLED_2" />
+						<itemid serial="9">
+							<itemidname>
+								SimpleConnector1
+							</itemidname>
+						</itemid>
+					</simpleconnector>
+				</oracle>
+			</graphq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="3" columns="60" rows="5" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;To what extent would these domain classes
+					correspond to design classes?&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+				<feedback>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;p style=&quot;margin-top: 0&quot;&gt;
+					
+					&lt;/p&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</feedback>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="4" columns="60" rows="6" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Suggest ways in which the dynamic aspects of the
+					process could be improved in the software implementation.&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+				<feedback>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;p style=&quot;margin-top: 0&quot;&gt;
+					
+					&lt;/p&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</feedback>
+			</freeTextq>
+		</compositeq>
+		<compositeq labelStyle="SUB_QUESTION" marksAllocated="20" displayFormat="SINGLE_PAGE">
+			<questionText>
+				&lt;html&gt;
+				&lt;head&gt;
+				
+				&lt;/head&gt;
+				&lt;body&gt;
+				&lt;p style=&quot;margin-top: 0&quot;&gt;
+				
+				&lt;/p&gt;
+				&lt;/body&gt;
+				&lt;/html&gt;
+			</questionText>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="4" columns="60" rows="6" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Explain the role of the GRASP patterns in
+					object-oriented software development&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<compositeq labelStyle="SUB_QUESTION" marksAllocated="6" displayFormat="SINGLE_PAGE">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;In an early iteration you have decided to implement
+					a cut-down version of Take Exam where the exam consists of multiple choice
+					questions (MCQs) only, and the set of MCQs in an exam is fixed when it is
+					set . Classes which have been identified include Exam, MCQ (a multiple
+					choice question), MCQChoice (one of the choices in an MCQ), Script (an
+					answer from one student to an Exam), and MCQAnswer (an answer to one MCQ).&lt;br&gt;&lt;br&gt;Based
+					on the appropriate GRASP patterns, suggest which of these classes should
+					implement the following operations:&lt;br&gt;&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+				<freeTextq labelStyle="SIMPLE" marksAllocated="1" columns="60" rows="2" textStyle="PLAIN_TEXT">
+					<questionText>
+						&lt;html&gt;
+						&lt;head&gt;
+						
+						&lt;/head&gt;
+						&lt;body&gt;
+						&lt;font face=&quot;Monospaced&quot;&gt;getTotalmarks(StudentID student)&lt;/font&gt; &lt;font face=&quot;SansSerif&quot;&gt;&amp;#8211;
+						one student&amp;#8217;s mark for the test&lt;/font&gt;
+						&lt;/body&gt;
+						&lt;/html&gt;
+					</questionText>
+				</freeTextq>
+				<freeTextq labelStyle="SIMPLE" marksAllocated="1" columns="60" rows="2" textStyle="PLAIN_TEXT">
+					<questionText>
+						&lt;html&gt;
+						&lt;head&gt;
+						
+						&lt;/head&gt;
+						&lt;body&gt;
+						&lt;font face=&quot;Monospaced&quot;&gt;getCorrectChoice()&lt;/font&gt; &lt;font face=&quot;SansSerif&quot;&gt;&amp;#8211;
+						return the correct choice for an MCQ.&lt;/font&gt;&lt;br&gt;
+						&lt;/body&gt;
+						&lt;/html&gt;
+					</questionText>
+				</freeTextq>
+				<freeTextq labelStyle="SIMPLE" marksAllocated="2" columns="60" rows="3" textStyle="PLAIN_TEXT">
+					<questionText>
+						&lt;html&gt;
+						&lt;head&gt;
+						
+						&lt;/head&gt;
+						&lt;body&gt;
+						&lt;font face=&quot;Monospaced&quot;&gt;getFeedback()&lt;/font&gt; &lt;font face=&quot;SansSerif&quot;&gt;&amp;#8211;
+						return a String containing feedback for a student after they&amp;#8217;ve taken a
+						self-assessment test, prepared in advance. (Suggest two options for this).&lt;/font&gt;
+						&lt;/body&gt;
+						&lt;/html&gt;
+					</questionText>
+				</freeTextq>
+				<freeTextq labelStyle="SIMPLE" marksAllocated="2" columns="60" rows="3" textStyle="PLAIN_TEXT">
+					<questionText>
+						&lt;html&gt;
+						&lt;head&gt;
+						
+						&lt;/head&gt;
+						&lt;body&gt;
+						&lt;font face=&quot;Monospaced&quot;&gt;createMCQChoice()&lt;/font&gt; &lt;font face=&quot;SansSerif&quot;&gt;&amp;#8211;
+						create an instance of the MCQChoice class (suggest two possibilities)&lt;/font&gt;
+						&lt;/body&gt;
+						&lt;/html&gt;
+					</questionText>
+					<feedback>
+						&lt;html&gt;
+						&lt;head&gt;
+						
+						&lt;/head&gt;
+						&lt;body&gt;
+						&lt;p style=&quot;margin-top: 0&quot;&gt;
+						
+						&lt;/p&gt;
+						&lt;/body&gt;
+						&lt;/html&gt;
+					</feedback>
+				</freeTextq>
+			</compositeq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="5" columns="60" rows="8" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Explain the notion of a Controller, and the
+					different types of controller, using the Client side of the application as
+					an example. Suggest what sort of controller, if any, would be most
+					appropriate here&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+				<feedback>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;p style=&quot;margin-top: 0&quot;&gt;
+					
+					&lt;/p&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</feedback>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="5" columns="60" rows="8" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;What additional classes are suggested by the other
+					GRASP patterns?&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+				<feedback>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;p style=&quot;margin-top: 0&quot;&gt;
+					
+					&lt;/p&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</feedback>
+			</freeTextq>
+		</compositeq>
+	</compositeq>
+</exam>

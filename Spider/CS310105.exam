@@ -1,0 +1,383 @@
+<?xml version="1.0"?>
+<!DOCTYPE exam SYSTEM "exam.dtd">
+<!-- serialize from mancs.caa.core at Thu Jan 19 11:48:24 GMT 2006 -->
+<exam feedbackMode="NONE" id="CS310105" markingMode="AUTOMATIC" runningTime="7200" totalMarks="60" allImages="true">
+	<courseCode>
+		CS3101
+	</courseCode>
+	<when>
+		Jan 24th 2005, 9.45
+	</when>
+	<rubric>
+		&lt;html&gt;
+		&lt;head&gt;
+		
+		&lt;/head&gt;
+		&lt;body&gt;
+		&lt;p align=&quot;center&quot;&gt;
+		Answer QUESTION 1 and TWO other questions
+		&lt;/p&gt;
+		&lt;p align=&quot;center&quot;&gt;
+		
+		&lt;/p&gt;
+		&lt;hr align=&quot;center&quot; width=&quot;90%&quot;&gt;
+		
+		
+		&lt;p align=&quot;center&quot;&gt;
+		The use of electronic calculators is &lt;u&gt;not&lt;/u&gt; permitted.
+		&lt;/p&gt;
+		&lt;p&gt;
+		
+		&lt;/p&gt;
+		&lt;hr align=&quot;center&quot; width=&quot;90%&quot;&gt;
+		&lt;/body&gt;
+		&lt;/html&gt;
+	</rubric>
+	<compositeq labelStyle="SIMPLE" marksAllocated="60" displayFormat="MULTI_PAGE" answerOnly="3">
+		<questionText>
+			&lt;html&gt;
+			&lt;head&gt;
+			
+			&lt;/head&gt;
+			&lt;body&gt;
+			&lt;p style=&quot;margin-top: 0&quot;&gt;
+			
+			&lt;/p&gt;
+			&lt;/body&gt;
+			&lt;/html&gt;
+		</questionText>
+		<compositeq labelStyle="SUB_QUESTION" marksAllocated="20" displayFormat="LIST_SELECTED">
+			<questionText>
+				&lt;html&gt;
+				&lt;head&gt;
+				
+				&lt;/head&gt;
+				&lt;body&gt;
+				&lt;font face=&quot;SansSerif&quot;&gt;For each of the following uses of inheritance,
+				discuss how sensible it is, and suggest alternatives, in the form of
+				Java-like code, as appropriate. (4 marks each = 20 marks)&lt;/font&gt;
+				&lt;/body&gt;
+				&lt;/html&gt;
+			</questionText>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="4" columns="50" rows="10" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;Monospaced&quot;&gt;public abstract class Footballer { .. }&lt;br&gt;&lt;br&gt;//
+					A footballer whose main job is to score goals&lt;br&gt;public class Striker
+					extends Footballer { &amp;#8230; }&lt;br&gt;&lt;br&gt;// One whose main job is to stop the
+					opposition scoring&lt;br&gt;public class Defender extends Footballer { .. }&lt;br&gt;&lt;br&gt;//
+					In a class of his own&lt;br&gt;public class WayneRooney extends Striker { &amp;#8230; }&lt;br&gt;&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="4" columns="50" rows="10" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;Monospaced&quot;&gt;public class ArrayList { &amp;#8230; }&lt;br&gt;&lt;br&gt;// A
+					class representing a traffic queue&lt;br&gt;// in a traffic simulation
+					application&lt;br&gt;public class TrafficQueue extends ArrayList { &amp;#8230; }&lt;br&gt;&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="4" columns="50" rows="10" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;Monospaced&quot;&gt;public abstract class PersonalElectronicEquipment
+					{ &amp;#8230; }&lt;br&gt;&lt;br&gt;public class MobilePhone&lt;br&gt;extends
+					PersonalElectronicEquipment { &amp;#8230; }&lt;br&gt;&lt;br&gt;public class DigitalCamera&lt;br&gt;extends
+					PersonalElectronicEquipment { &amp;#8230; }&lt;br&gt;&lt;br&gt;public class CameraPhone&lt;br&gt;extends
+					MobilePhone, DigitalCamera { &amp;#8230; }&lt;br&gt;&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="4" columns="50" rows="10" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;Monospaced&quot;&gt;// A proposed replacement for the &amp;quot;clone&amp;quot;
+					mechanism used to copy Java objects&lt;br&gt;public class Copyable {&lt;br&gt;&lt;br&gt;//
+					Default implementation, does a shallow copy&lt;br&gt;// i.e. copies the instance
+					variables but not objects to which they refer.&lt;br&gt;public Object copy() { &amp;#8230;}&lt;br&gt;}&lt;br&gt;&lt;br&gt;//
+					A book is an information source which can be copied.&lt;br&gt;public class Book
+					extends InformationSource, Copyable { &amp;#8230; }&lt;br&gt;&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="4" columns="60" rows="8" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;Monospaced&quot;&gt;// The class representing answers in an online
+					exam system&lt;/font&gt;&lt;br&gt;&lt;font face=&quot;Monospaced&quot;&gt;
+					public abstract class Answer { &amp;#8230; }&lt;br&gt;&lt;br&gt;// An answer to a
+					multiple-choice question&lt;br&gt;public class MCQAnswer extends Answer { &amp;#8230; }&lt;br&gt;&lt;br&gt;//
+					An answer consisting of text&lt;br&gt;public class TextAnswer extends Answer { &amp;#8230;
+					}&lt;br&gt;&lt;br&gt;// An Answer which the student failed to proved&lt;br&gt;public class
+					NoAnswerProvided extends Answer { &amp;#8230; }&lt;br&gt;&lt;br&gt;// An answer which was
+					not required.&lt;br&gt;// This occurs in tests where the system picks a set of
+					questions randomly &lt;/font&gt;&lt;br&gt;&lt;font face=&quot;Monospaced&quot;&gt;
+					// from a question bank, different from each student.&lt;br&gt;public class
+					NoAnswerRequired extends Answer { &amp;#8230; }&lt;br&gt;&lt;/font&gt;&lt;br&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+		</compositeq>
+		<compositeq labelStyle="SUB_QUESTION" marksAllocated="20" displayFormat="SINGLE_PAGE">
+			<questionText>
+				&lt;html&gt;
+				&lt;head&gt;
+				
+				&lt;/head&gt;
+				&lt;body&gt;
+				&lt;font face=&quot;SansSerif&quot;&gt;Explain each of the following statements with an
+				example. For full marks you should use examples not in the course notes.
+				(5 marks each = 20 marks)&lt;br&gt;&lt;/font&gt;
+				&lt;/body&gt;
+				&lt;/html&gt;
+			</questionText>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="5" columns="60" rows="8" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;&amp;quot;Encapsulation is fundamental to Object-oriented
+					software development, as it is necessary for abstraction.&amp;#8221;&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="5" columns="60" rows="8" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;&amp;quot;Encapsulation has a role in improving runtime
+					performance&amp;#8221;&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="5" columns="60" rows="8" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;&amp;quot;Encapsulation can help with manual storage
+					management&lt;/font&gt;&amp;#8221;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="5" columns="60" rows="8" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;&amp;quot;Encapsulation is a prerequisite for Design by
+					Contract&amp;#8221;&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+		</compositeq>
+		<compositeq labelStyle="SUB_QUESTION" marksAllocated="20" displayFormat="SINGLE_PAGE">
+			<questionText>
+				&lt;html&gt;
+				&lt;head&gt;
+				
+				&lt;/head&gt;
+				&lt;body&gt;
+				&lt;p style=&quot;margin-top: 0&quot;&gt;
+				
+				&lt;/p&gt;
+				&lt;/body&gt;
+				&lt;/html&gt;
+			</questionText>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="2" columns="60" rows="2" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Define the term &lt;b&gt;Design Pattern&lt;/b&gt;&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="6" columns="60" rows="10" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;&lt;br&gt;
+					You are designing online examination software, which will enable students
+					to take exams from anywhere in the world via Java Applets, managed and
+					invigilated via a central server. Exams will involve structured questions
+					involving various types of answers, some of which will be marked in a
+					Human-Computer Collaborative manner where the software employs various
+					strategies to present the information efficiently to the marker and
+					enhance consistency.&lt;br&gt;&lt;br&gt;Explain in detail how the Composite design
+					pattern could be used in the design of such software.&lt;br&gt;&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="12" columns="60" rows="18" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Briefly discuss how &lt;i&gt;four&lt;/i&gt; other design
+					patterns could be used in this software (3 marks each = 12 marks.)&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+		</compositeq>
+		<compositeq labelStyle="SUB_QUESTION" marksAllocated="20" displayFormat="SINGLE_PAGE">
+			<compositeq labelStyle="SUB_QUESTION" marksAllocated="15" displayFormat="SINGLE_PAGE">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Suppose you are developing a class library for some
+					object-oriented programming language, using Design-by-contract.&lt;br&gt;&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+				<freeTextq labelStyle="SIMPLE" marksAllocated="5" columns="60" rows="8" textStyle="PLAIN_TEXT">
+					<questionText>
+						&lt;html&gt;
+						&lt;head&gt;
+						
+						&lt;/head&gt;
+						&lt;body&gt;
+						&lt;font face=&quot;SansSerif&quot;&gt;For the classes in your library, what is the
+						purpose of introducing contracts, and how would you define them?&lt;br&gt;&lt;br&gt;&lt;/font&gt;
+						&lt;/body&gt;
+						&lt;/html&gt;
+					</questionText>
+				</freeTextq>
+				<freeTextq labelStyle="SIMPLE" marksAllocated="10" columns="60" rows="16" textStyle="PLAIN_TEXT">
+					<questionText>
+						&lt;html&gt;
+						&lt;head&gt;
+						
+						&lt;/head&gt;
+						&lt;body&gt;
+						&lt;font face=&quot;SansSerif&quot;&gt;Suppose you choose Java as the programming
+						language, and you want to build a class SqRoot that has a method for
+						finding the square root of a number, and a class Stack that has methods
+						for maintaining a stack of numbers. Show how you would define these
+						classes using Design-by-contract. You need not show detailed code, but you
+						should give an outline together with a clear explanation.&lt;/font&gt;
+						&lt;/body&gt;
+						&lt;/html&gt;
+					</questionText>
+				</freeTextq>
+			</compositeq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="5" columns="60" rows="8" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Suppose you now want to use Design-by-contract to
+					build a Java program that finds the square roots of a stack of numbers
+					using SqRoot and Stack. Outline this program and explain the benefits of
+					using SqRoot and Stack.&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+		</compositeq>
+		<compositeq labelStyle="SUB_QUESTION" marksAllocated="20" displayFormat="SINGLE_PAGE">
+			<freeTextq labelStyle="SIMPLE" marksAllocated="5" columns="60" rows="8" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Why is a software component not just any block of
+					software?&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="10" columns="60" rows="16" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Consider a library with many branches. Suppose the
+					library has an on-line system which allows users anywhere to check book
+					availability, and allows the librarians at all branches to process book
+					issues and returns. Suppose you have to implement this application on the
+					J2EE platform. Show how you would do so using enterprise Java beans, i.e.
+					Enterprise JavaBeans components.&lt;br&gt;Explain clearly the main enterprise
+					beans and any other entities that are involved. Although detailed code
+					need not be given, you should sketch the interfaces of the beans and the
+					interactions between the beans, and between the beans and other entities
+					involved.&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+			<freeTextq labelStyle="SIMPLE" marksAllocated="5" columns="60" rows="8" textStyle="PLAIN_TEXT">
+				<questionText>
+					&lt;html&gt;
+					&lt;head&gt;
+					
+					&lt;/head&gt;
+					&lt;body&gt;
+					&lt;font face=&quot;SansSerif&quot;&gt;Why would Java beans, i.e. JavaBeans components,
+					not be suitable for this application?&lt;br&gt;&lt;/font&gt;
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</questionText>
+			</freeTextq>
+		</compositeq>
+	</compositeq>
+</exam>
