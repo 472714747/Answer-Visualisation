@@ -122,11 +122,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         fname, filetype = QFileDialog.getSaveFileName(
             self, "Save File", "./", "CSV (*.csv)")  # 写入文件首先获取文件路径
         if fname[0]:  # 如果获取的路径非空
-            f = open(fname[0], "w")  # 以写入的方式打开文件
             pandas.DataFrame.from_dict(Count,
                                        orient='index').T.to_csv(fname,
                                                                 index=False)
-        f.close()
+
+        f = pandas.read_csv(fname)
+        f_T = f.T
+        f_T.to_csv(fname)
 
     def Student_View(self):  # 点击View-Student
         self.listWidget.clear()
