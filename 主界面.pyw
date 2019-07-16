@@ -49,8 +49,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.actionExit.triggered.connect(self.Exit)
         self.actionStudent.triggered.connect(self.Student_View)
         self.actionQuestion.triggered.connect(self.Question_View)
+
         self.listWidget.itemClicked.connect(self.listWidget_Clicked)
         self.listWidget_2.itemClicked.connect(self.listWidget_2_Clicked)
+
         self.pushButton.clicked.connect(self.detail)
         self.animation = None
         self.tabWidget.setTabEnabled(1, False)
@@ -58,7 +60,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # 搜索栏加图标
         myAction = QtWidgets.QAction(self.lineEdit)
         myAction.setIcon(QtGui.QIcon("./UI/Icons/search.png"))
+        myAction.triggered.connect(self.search)
+
         self.lineEdit.addAction(myAction, QtWidgets.QLineEdit.TrailingPosition)
+        self.lineEdit.returnPressed.connect(self.search)
 
         # 添加阴影
         # effect = QGraphicsDropShadowEffect(self)
@@ -122,7 +127,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         fname, filetype = QFileDialog.getSaveFileName(
             self, "Save File", "./", "CSV (*.csv)")  # 写入文件首先获取文件路径
         if fname[0]:  # 如果获取的路径非空
-            pandas.DataFrame.from_dict(Count,
+            pandas.DataFrame.from_dict(dict(Count),
                                        orient='index').T.to_csv(fname,
                                                                 index=False)
 
@@ -204,7 +209,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 for i in range(1, length):
                     self.listWidget_2.addItem("Student" + str(i))
 
-        if Status == "Detail":
+        if Status == "Detail":  # 查看词频
             pattern_Student = re.compile("Student+[0-9]*\.")
             text = ""
             # for i in Question_list:
@@ -219,7 +224,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             global Count
             Word_frenquency = Word_Count.Word_Count(text)
-            Count = dict(Word_frenquency.most_common(100))
+            Count = Word_frenquency.most_common(200)
 
             j = 0
             for i in Word_frenquency.most_common(20):
@@ -265,8 +270,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             if "Question" in i and "." in i:
                 self.listWidget.addItem(i)
 
-    def Exit(self):  # 点击 Exit
-        sys.exit(0)
+    def search(self):
+        self.tableWidget.clear()
+        for i in Count:
+            if i[0] == self.lineEdit.text():
+                word = self.lineEdit.text()
+                frenquency = str(i[1])
+                self.tableWidget.setItem(0, 0, QTableWidgetItem(word))
+                self.tableWidget.setItem(0, 1, QTableWidgetItem(frenquency))
 
     def closeEvent(self, event):  # 程序关闭动画
         if self.animation is None:
@@ -277,6 +288,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.animation.finished.connect(self.close)
             self.animation.start()
             event.ignore()
+
+    def Exit(self):  # 点击 Exit
+        sys.exit(0)
 
 
 if __name__ == "__main__":
