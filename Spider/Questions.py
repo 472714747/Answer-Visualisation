@@ -1,14 +1,18 @@
 # 主文件
 # Queston.i.j
 # < exam >
-# < courseCode >
-# < when >
-# < rubric >
-# < compositeq >
-#     < questionText >
+#     < courseCode >
+#     < when >
+#     < rubric >
 #     < compositeq >
-#         < questionText >
-#     < graphq >
+#             < questionText >
+#             < compositeq >
+#                 < questionText >
+#                 < freeTextq >
+#             < compositeq >
+#                 < questionText >
+#                 < freeTextq >
+#             < graphq >
 
 from bs4 import BeautifulSoup
 
@@ -24,7 +28,6 @@ def Open(filename):
     for key in exam_property:
         print(key + ":" + str(exam_property[key]))
 
-    # 获取courseCode
     exam_CourseCode = file.exam.courseCode.contents[0]
     exam_CourseCode = Text_Clear.clear(exam_CourseCode)
     print("courseCode:" + exam_CourseCode)
