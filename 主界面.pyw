@@ -29,6 +29,7 @@ listWidget_Text = ""
 Count = {}
 Word_frenquency = Counter()
 Word_frenquency2 = Counter()
+Question_number = ""
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -40,12 +41,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.menuView.setEnabled(False)
         self.tabWidget.setTabEnabled(2, False)
         self.tabWidget.setTabEnabled(3, False)
-        self.tableWidget.horizontalHeader().setSectionResizeMode(
-            QHeaderView.Interactive)
-        self.tableStandard.horizontalHeader().setSectionResizeMode(
-            QHeaderView.Interactive)
-        self.tableStudent.horizontalHeader().setSectionResizeMode(
-            QHeaderView.Interactive)
 
         self.actionOpen.triggered.connect(self.Openfile)
         self.actionSave.triggered.connect(self.Save)
@@ -60,6 +55,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton.clicked.connect(self.detail)
         self.animation = None
         self.tabWidget.setTabEnabled(1, False)
+
+        # 双击取词
+        self.textEdit_2_Up.copyAvailable.connect(self.textCopy_Up)
+        self.textEdit_2_Down.copyAvailable.connect(self.textCopy_Down)
 
         self.pushButton_3.clicked.connect(self.Substract)
 
@@ -317,9 +316,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 j = j + 1
 
     def listWidget_2_Clicked(self, item):
+        global Question_number
+
         if Status == "Student":
             Text = item.text()
             Text2 = Text.replace("Question", Student_number + ".")
+            Question_number = Text
+
             try:
                 self.textEdit_2_Up.setHtml(Question_list[Text[:-2]] +
                                            "<br><br>" + Question_list[Text])
@@ -331,6 +334,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if Status == "Question":
             Text = listWidget_Text
             Text1 = item.text() + "." + Text.replace("Question", "")
+            Question_number = Text1
+
             try:
                 self.textEdit_2_Up.setHtml(Question_list[Text[:-2]] +
                                            "<br><br>" + Question_list[Text])
@@ -351,6 +356,61 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         for i in Question_list:
             if "Question" in i and "." in i and i != "Question4.1":
                 self.listWidget.addItem(i)
+
+    def textCopy_Up(self, status):  # 取词查频
+        if status is True:
+            self.textEdit_2_Up.copy()
+            command = QApplication.clipboard().text()
+            original = Word_Count.Original(command)[0]
+
+            pattern_Student = re.compile("Student+[0-9]*\.")
+            text = ""
+            i = Question_number
+            Question = i.replace("Question", "")
+            for j in Answer_list:
+                QuestionOfStudent = pattern_Student.sub("", j)
+                if Question == QuestionOfStudent:
+                    text = text + Answer_list[j] + "     "
+
+            Word_frenquency = Word_Count.Word_Count(text)
+            word_list = dict(Word_frenquency.most_common(1000))
+
+            if original in word_list.keys():
+                self.lineEdit_2.setText("The word " + "\"" + command + "\"" +
+                                        " appears " +
+                                        str(word_list[original]) +
+                                        " times in all students' answers")
+            else:
+                self.lineEdit_2.setText("The word " + "\"" + command + "\"" +
+                                        " doesn't appear in students' answers")
+
+    def textCopy_Down(self, status):  # 取词查频
+        if status is True:
+            self.textEdit_2_Down.copy()
+            command = QApplication.clipboard().text()
+            original = Word_Count.Original(command)[0]
+
+            pattern_Student = re.compile("Student+[0-9]*\.")
+            text = ""
+            i = Question_number
+            Question = i.replace("Question", "")
+            for j in Answer_list:
+                QuestionOfStudent = pattern_Student.sub("", j)
+                if Question == QuestionOfStudent:
+                    text = text + Answer_list[j] + "     "
+
+            Word_frenquency = Word_Count.Word_Count(text)
+            word_list = dict(Word_frenquency.most_common(1000))
+
+            if original in word_list.keys():
+                self.lineEdit_2.setText("The word " + "\"" + command + "\"" +
+                                        " appears " +
+                                        str(word_list[original]) +
+                                        " times in all students' answers.")
+            else:
+                self.lineEdit_2.setText(
+                    "The word " + "\"" + command + "\"" +
+                    " doesn't appear in students' answers.")
 
     def search(self):
         self.tableWidget.clear()
