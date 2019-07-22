@@ -1,12 +1,10 @@
-import sys
-import re
-import pandas
+import sys, re, pandas
+from collections import Counter
 
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtWidgets, uic
 from PyQt5.QtCore import QPropertyAnimation, Qt
-from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QApplication, QFileDialog, QTabWidget, QGraphicsDropShadowEffect
-from PyQt5.QtWidgets import QTableWidget, QFrame, QTableWidgetItem
+from PyQt5.QtWidgets import QTableWidget, QFrame, QTableWidgetItem, QHeaderView
 
 sys.path.append(
     r'L:\OneDrive - UOM\University of Manchester\PGT\Project\Tool\Spider')
@@ -16,13 +14,9 @@ sys.path.append(
     r'C:\Users\ang\OneDrive - UOM\University of Manchester\PGT\Project\Tool\Spider'
 )
 
-import Questions
-import Standard_Answers
-import Student_Answers
-import Word_Count
+import Questions, Standard_Answers, Student_Answers, Word_Count
 
 qtCreatorFile = "UI/mainwindow.ui"  # Enter file here.
-
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
 Question_list = {}
@@ -33,6 +27,8 @@ Status = ""
 Student_number = ""
 listWidget_Text = ""
 Count = {}
+Word_frenquency = Counter()
+Word_frenquency2 = Counter()
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -43,12 +39,20 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # self.setWindowFlags(self.windowFlags() | Qt.FramelessWindowHint)
         self.menuView.setEnabled(False)
         self.tabWidget.setTabEnabled(2, False)
+        self.tabWidget.setTabEnabled(3, False)
+        self.tableWidget.horizontalHeader().setSectionResizeMode(
+            QHeaderView.Interactive)
+        self.tableStandard.horizontalHeader().setSectionResizeMode(
+            QHeaderView.Interactive)
+        self.tableStudent.horizontalHeader().setSectionResizeMode(
+            QHeaderView.Interactive)
 
         self.actionOpen.triggered.connect(self.Openfile)
         self.actionSave.triggered.connect(self.Save)
         self.actionExit.triggered.connect(self.Exit)
         self.actionStudent.triggered.connect(self.Student_View)
         self.actionQuestion.triggered.connect(self.Question_View)
+        self.actionCompare.triggered.connect(self.Compare)
 
         self.listWidget.itemClicked.connect(self.listWidget_Clicked)
         self.listWidget_2.itemClicked.connect(self.listWidget_2_Clicked)
@@ -57,7 +61,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.animation = None
         self.tabWidget.setTabEnabled(1, False)
 
-        # 搜索栏加图标
+        self.pushButton_3.clicked.connect(self.Substract)
+
+        # Tab3搜索栏加图标
         myAction = QtWidgets.QAction(self.lineEdit)
         myAction.setIcon(QtGui.QIcon("./UI/Icons/search.png"))
         myAction.triggered.connect(self.search)
@@ -65,6 +71,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lineEdit.addAction(myAction, QtWidgets.QLineEdit.TrailingPosition)
         self.lineEdit.returnPressed.connect(self.search)
 
+        # Tab4搜索栏加图标
+        myAction2 = QtWidgets.QAction(self.lineEdit_3)
+        myAction2.setIcon(QtGui.QIcon("./UI/Icons/search.png"))
+        myAction2.triggered.connect(self.search2)
+
+        self.lineEdit_3.addAction(myAction2,
+                                  QtWidgets.QLineEdit.TrailingPosition)
+        self.lineEdit_3.returnPressed.connect(self.search2)
         # 添加阴影
         # effect = QGraphicsDropShadowEffect(self)
         # effect.setBlurRadius(12)
@@ -81,9 +95,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         )
 
         if filename != "":  # 成功选择文件
+            self.listWidget.clear()
             global Question_list
 
             if filetype == "Questions File (*.exam)":  # 考试试题
+                self.menuView.setEnabled(False)
                 self.textEdit_Up.clear()
                 self.textEdit_Down.clear()
                 self.tabWidget.setTabEnabled(1, False)
@@ -95,6 +111,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     self.listWidget.addItem(str(i))
 
             if filetype == "Standard Answers File (*.stan)":  # 标准答案
+                self.menuView.setEnabled(False)
                 self.textEdit_Up.clear()
                 self.textEdit_Down.clear()
                 self.tabWidget.setTabEnabled(1, False)
@@ -161,6 +178,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.listWidget.addItem(i)
 
     def listWidget_Clicked(self, item):  # 在左面选择一项
+        global Count, Word_frenquency, Word_frenquency2
+
         if filetype == "Questions File (*.exam)":
             self.textEdit_Up.setHtml(Question_list[item.text()])
 
@@ -212,9 +231,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if Status == "Detail":  # 查看词频
             pattern_Student = re.compile("Student+[0-9]*\.")
             text = ""
-            # for i in Question_list:
-            #     # if "Question" in i:
-            #     if i == "Question4.1.2":
             i = item.text()
             Question = i.replace("Question", "")
             for j in Answer_list:
@@ -222,9 +238,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 if Question == QuestionOfStudent:
                     text = text + Answer_list[j] + "     "
 
-            global Count
             Word_frenquency = Word_Count.Word_Count(text)
-            Count = Word_frenquency.most_common(200)
+            Count = Word_frenquency.most_common(200)  # 保存用
 
             j = 0
             for i in Word_frenquency.most_common(20):
@@ -232,6 +247,73 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 frenquency = str(i[1])
                 self.tableWidget.setItem(j, 0, QTableWidgetItem(word))
                 self.tableWidget.setItem(j, 1, QTableWidgetItem(frenquency))
+                j = j + 1
+
+        if Status == "Compare":
+            self.pushButton_3.setEnabled(True)
+
+            # 标准答案。
+            i = item.text()
+            Question = i.replace("Question", "Standard_Answer")
+            text = Standard_list[Question]
+
+            Word_frenquency = Word_Count.Word_Count(text)
+            number = min(len(dict(Word_frenquency)), 200)
+            self.tableStandard.setRowCount(number)
+            Count = Word_frenquency.most_common(200)  # 保存用
+
+            j = 0
+            for i in Count:
+                word = i[0]
+                frenquency = str(i[1])
+                self.tableStandard.setItem(j, 0, QTableWidgetItem(word))
+                self.tableStandard.setItem(j, 1, QTableWidgetItem(frenquency))
+                j = j + 1
+
+            # 学生答案
+            pattern_Student = re.compile("Student+[0-9]*\.")
+            text2 = ""
+            i = item.text()
+            Question = i.replace("Question", "")
+            for j in Answer_list:
+                QuestionOfStudent = pattern_Student.sub("", j)
+                if Question == QuestionOfStudent:
+                    text2 = text2 + Answer_list[j] + "     "
+
+            Word_frenquency2 = Word_Count.Word_Count(text2)
+            number = min(len(dict(Word_frenquency2)), 200)
+            self.tableStudent.setRowCount(number)
+            Count2 = Word_frenquency2.most_common(200)  # 保存用
+
+            j = 0
+            for i in Count2:
+                word = i[0]
+                frenquency = str(i[1])
+                self.tableStudent.setItem(j, 0, QTableWidgetItem(word))
+                self.tableStudent.setItem(j, 1, QTableWidgetItem(frenquency))
+                j = j + 1
+
+            # 对比
+            list1 = list(dict(Count).keys())
+            list2 = list(dict(Count2).keys())
+            list_same = []
+            list_different = []
+            for i in list1:
+                if i in list2:
+                    list_same.append(i)
+                if i not in list2:
+                    list_different.append(i)
+
+            length = max(len(list_same), len(list_different))
+            self.tableCompare.setRowCount(length)
+            i = 0
+            j = 0
+            for element in list_same:
+                self.tableCompare.setItem(i, 0, QTableWidgetItem(element))
+                i = i + 1
+
+            for element in list_different:
+                self.tableCompare.setItem(j, 1, QTableWidgetItem(element))
                 j = j + 1
 
     def listWidget_2_Clicked(self, item):
@@ -267,7 +349,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.listWidget.clear()
         for i in Question_list:
-            if "Question" in i and "." in i:
+            if "Question" in i and "." in i and i != "Question4.1":
                 self.listWidget.addItem(i)
 
     def search(self):
@@ -278,6 +360,109 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 frenquency = str(i[1])
                 self.tableWidget.setItem(0, 0, QTableWidgetItem(word))
                 self.tableWidget.setItem(0, 1, QTableWidgetItem(frenquency))
+
+    def search2(self):
+        self.tableWidget.clear()
+        for i in Count:
+            if i[0] == self.lineEdit.text():
+                word = self.lineEdit.text()
+                frenquency = str(i[1])
+                self.tableWidget.setItem(0, 0, QTableWidgetItem(word))
+                self.tableWidget.setItem(0, 1, QTableWidgetItem(frenquency))
+
+    def Compare(self):
+        self.listWidget.clear()
+        self.tableStandard.clear()
+        self.tableStudent.clear()
+
+        filename, haha = QFileDialog.getOpenFileName(
+            self, "Open File", "./", "Standard Answers File (*.stan)")
+
+        if filename != "":  # 成功选择文件
+            global Question_list
+            global Standard_list
+            global Answer_list
+            global Status
+            Status = "Compare"
+
+            self.tabWidget.setTabEnabled(0, False)
+            self.tabWidget.setTabEnabled(1, False)
+            self.tabWidget.setTabEnabled(2, False)
+            self.tabWidget.setTabEnabled(3, True)
+            self.tabWidget.setTabText(3, "Compare")
+
+            Question_list = Questions.Open(filename.replace("stan", "exam"))
+            Standard_list = Standard_Answers.Open(filename)
+            Answer_list = Student_Answers.Open(filename.replace(
+                "stan", "aset"))
+
+            for i in Standard_list:
+                self.listWidget.addItem(
+                    i.replace("Standard_Answer", "Question"))
+
+    def Substract(self):
+        self.tableStandard.clear()
+        self.tableStudent.clear()
+        self.tableCompare.clear()
+        self.pushButton_3.setEnabled(False)
+        global Word_frenquency, Word_frenquency2
+
+        file = open("./Spider/Normal_Words.csv")
+        a = file.read().split()
+        file.close()
+
+        Word_frenquency = dict(Word_frenquency.most_common(200))
+        Word_frenquency2 = dict(Word_frenquency2.most_common(200))
+        Sub_list1 = {}
+        Sub_list2 = {}
+
+        for element in Word_frenquency.keys():
+            if element not in a:
+                Sub_list1[element] = Word_frenquency[element]
+
+        for element in Word_frenquency2.keys():
+            if element not in a:
+                Sub_list2[element] = Word_frenquency2[element]
+
+        number1 = len(Sub_list1)
+        number2 = len(Sub_list2)
+        self.tableStandard.setRowCount(number1)
+        self.tableStudent.setRowCount(number2)
+
+        i = 0
+        j = 0
+        for element in Sub_list1:
+            self.tableStandard.setItem(i, 0, QTableWidgetItem(element))
+            self.tableStandard.setItem(
+                i, 1, QTableWidgetItem(str(Sub_list1[element])))
+            i = i + 1
+
+        for element in Sub_list2:
+            self.tableStudent.setItem(j, 0, QTableWidgetItem(element))
+            self.tableStudent.setItem(
+                j, 1, QTableWidgetItem(str(Sub_list2[element])))
+            j = j + 1
+
+        # Sub_list_same = []
+        # Sub_list_different = []
+        # for i in Sub_list1.keys():
+        #     if i in Sub_list2.keys():
+        #         Sub_list_same.append(i)
+        #     if i not in Sub_list2.keys():
+        #         Sub_list_different.append(i)
+
+        # length = max(len(Sub_list_same), len(Sub_list_different))
+        # self.tableCompare.setRowCount(length)
+        # i = 0
+        # j = 0
+        # for element in Sub_list_same:
+        #     self.tableCompare.setItem(i, 0, QTableWidgetItem(element))
+        #     i = i + 1
+
+        # for element in Sub_list_different:
+        #     self.tableCompare.setItem(j, 1, QTableWidgetItem(element))
+        #     j = j + 1
+        # print("dadsad")
 
     def closeEvent(self, event):  # 程序关闭动画
         if self.animation is None:

@@ -1,6 +1,5 @@
-import collections
-import sys
 import nltk
+from collections import Counter
 
 from nltk.corpus import stopwords
 from nltk.stem.wordnet import WordNetLemmatizer
@@ -31,7 +30,7 @@ def Word_Count(text):
         if word not in En_stopwords:
             Final_Text.append(word)
 
-    Word_frenquency = collections.Counter(Final_Text)
+    Word_frenquency = Counter(Final_Text)
     return Word_frenquency
 
 
