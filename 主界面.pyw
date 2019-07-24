@@ -85,6 +85,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # effect.setColor(Qt.gray)
         # self.widget.setGraphicsEffect(effect)
 
+    def setTable(self):
+        self.tableStandard.setHorizontalHeaderLabels(['Words', 'Frequency'])
+        self.tableStudent.setHorizontalHeaderLabels(['Words', 'Frequency'])
+        self.tableCompare.setHorizontalHeaderLabels(['Same', 'Different'])
+
     def Openfile(self):  # 打开文件
         self.listWidget.clear()
         global filetype
@@ -434,6 +439,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.listWidget.clear()
         self.tableStandard.clear()
         self.tableStudent.clear()
+        self.setTable()
 
         filename, haha = QFileDialog.getOpenFileName(
             self, "Open File", "./", "Standard Answers File (*.stan)")
@@ -465,6 +471,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tableStudent.clear()
         self.tableCompare.clear()
         self.pushButton_3.setEnabled(False)
+        self.setTable()
         global Word_frenquency, Word_frenquency2
 
         file = open("./Spider/Normal_Words.csv")
@@ -513,6 +520,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         length = max(len(Sub_list_same), len(Sub_list_different))
         self.tableCompare.setRowCount(length)
+
         i = 0
         j = 0
         for element in Sub_list_same:
