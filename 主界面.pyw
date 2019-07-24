@@ -503,26 +503,25 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 j, 1, QTableWidgetItem(str(Sub_list2[element])))
             j = j + 1
 
-        # Sub_list_same = []
-        # Sub_list_different = []
-        # for i in Sub_list1.keys():
-        #     if i in Sub_list2.keys():
-        #         Sub_list_same.append(i)
-        #     if i not in Sub_list2.keys():
-        #         Sub_list_different.append(i)
+        Sub_list_same = []
+        Sub_list_different = []
+        for i in Sub_list1.keys():
+            if i in Sub_list2.keys():
+                Sub_list_same.append(i)
+            if i not in Sub_list2.keys():
+                Sub_list_different.append(i)
 
-        # length = max(len(Sub_list_same), len(Sub_list_different))
-        # self.tableCompare.setRowCount(length)
-        # i = 0
-        # j = 0
-        # for element in Sub_list_same:
-        #     self.tableCompare.setItem(i, 0, QTableWidgetItem(element))
-        #     i = i + 1
+        length = max(len(Sub_list_same), len(Sub_list_different))
+        self.tableCompare.setRowCount(length)
+        i = 0
+        j = 0
+        for element in Sub_list_same:
+            self.tableCompare.setItem(i, 0, QTableWidgetItem(element))
+            i = i + 1
 
-        # for element in Sub_list_different:
-        #     self.tableCompare.setItem(j, 1, QTableWidgetItem(element))
-        #     j = j + 1
-        # print("dadsad")
+        for element in Sub_list_different:
+            self.tableCompare.setItem(j, 1, QTableWidgetItem(element))
+            j = j + 1
 
     def closeEvent(self, event):  # 程序关闭动画
         if self.animation is None:
