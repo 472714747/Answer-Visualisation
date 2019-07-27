@@ -13,11 +13,14 @@ sys.path.append(
 sys.path.append(
     r'C:\Users\ang\OneDrive - UOM\University of Manchester\PGT\Project\Tool\Spider'
 )
+sys.path.append(
+    r'C:\Users\ang\OneDrive - UOM\University of Manchester\PGT\Project\Tool\UI'
+)
 
-import Questions, Standard_Answers, Student_Answers, Word_Count
+import Questions, Standard_Answers, Student_Answers, Word_Count, Visualise
 
-qtCreatorFile = "UI/mainwindow.ui"  # Enter file here.
-Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
+Ui_MainWindow, Base1 = uic.loadUiType("UI/mainwindow.ui")
+Vis_Window, Base2 = uic.loadUiType("UI/Visualise.ui")
 
 Question_list = {}
 Standard_list = {}
@@ -32,11 +35,12 @@ Word_frenquency2 = Counter()
 Question_number = ""
 
 
-class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
+class MainWindow(Base1, Ui_MainWindow):
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
+
         # self.setWindowFlags(self.windowFlags() | Qt.FramelessWindowHint)
         self.menuView.setEnabled(False)
         self.tabWidget.setTabEnabled(2, False)
@@ -53,6 +57,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.listWidget_2.itemClicked.connect(self.listWidget_2_Clicked)
 
         self.pushButton.clicked.connect(self.detail)
+        self.pushButton_4.clicked.connect(self.shownew)
         self.animation = None
         self.tabWidget.setTabEnabled(1, False)
 
@@ -531,6 +536,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.tableCompare.setItem(j, 1, QTableWidgetItem(element))
             j = j + 1
 
+    def shownew(self):
+        self.main = Visualise_Window()
+        self.main.show()
+        self.close()
+
     def closeEvent(self, event):  # 程序关闭动画
         if self.animation is None:
             self.animation = QPropertyAnimation(self, b'windowOpacity')
@@ -542,7 +552,19 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             event.ignore()
 
     def Exit(self):  # 点击 Exit
-        sys.exit(0)
+        self.close()
+
+
+class Visualise_Window(Base2, Vis_Window):
+    def __init__(self):
+        super(Base2, self).__init__()
+        self.setupUi(self)
+
+        self.pushButton.clicked.connect(self.haha)
+
+    def haha(self):
+        a = Question_list
+        print(a)
 
 
 if __name__ == "__main__":
