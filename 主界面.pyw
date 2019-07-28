@@ -33,6 +33,11 @@ Count = {}
 Word_frenquency = Counter()
 Word_frenquency2 = Counter()
 Question_number = ""
+list_same = []
+list_different = []
+Sub_list_same = []
+Sub_list_different = []
+sub = ""
 
 
 class MainWindow(Base1, Ui_MainWindow):
@@ -41,11 +46,16 @@ class MainWindow(Base1, Ui_MainWindow):
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
 
-        # self.setWindowFlags(self.windowFlags() | Qt.FramelessWindowHint)
+        # 禁用按钮
         self.menuView.setEnabled(False)
+        self.tabWidget.setTabEnabled(1, False)
         self.tabWidget.setTabEnabled(2, False)
         self.tabWidget.setTabEnabled(3, False)
+        self.pushButton_3.setEnabled(False)
+        self.pushButton_4.setEnabled(False)
+        self.pushButton_5.setEnabled(False)
 
+        # 点击事件
         self.actionOpen.triggered.connect(self.Openfile)
         self.actionSave.triggered.connect(self.Save)
         self.actionExit.triggered.connect(self.Exit)
@@ -57,15 +67,15 @@ class MainWindow(Base1, Ui_MainWindow):
         self.listWidget_2.itemClicked.connect(self.listWidget_2_Clicked)
 
         self.pushButton.clicked.connect(self.detail)
-        self.pushButton_4.clicked.connect(self.shownew)
+        self.pushButton_3.clicked.connect(self.Substract)
+        self.pushButton_4.clicked.connect(self.vis_list)
+        self.pushButton_5.clicked.connect(self.vis_sub_list)
+
         self.animation = None
-        self.tabWidget.setTabEnabled(1, False)
 
         # 双击取词
         self.textEdit_2_Up.copyAvailable.connect(self.textCopy_Up)
         self.textEdit_2_Down.copyAvailable.connect(self.textCopy_Down)
-
-        self.pushButton_3.clicked.connect(self.Substract)
 
         # Tab3搜索栏加图标
         myAction = QtWidgets.QAction(self.lineEdit)
@@ -260,6 +270,11 @@ class MainWindow(Base1, Ui_MainWindow):
 
         if Status == "Compare":
             self.pushButton_3.setEnabled(True)
+            self.pushButton_4.setEnabled(True)
+            self.pushButton_5.setEnabled(True)
+            self.tableStandard.clear()
+            self.tableStudent.clear()
+            self.tableCompare.clear()
 
             # 标准答案。
             i = item.text()
@@ -303,10 +318,13 @@ class MainWindow(Base1, Ui_MainWindow):
                 j = j + 1
 
             # 对比
-            list1 = list(dict(Count).keys())
-            list2 = list(dict(Count2).keys())
+            global list_same, list_different
             list_same = []
             list_different = []
+
+            list1 = list(dict(Count).keys())
+            list2 = list(dict(Count2).keys())
+
             for i in list1:
                 if i in list2:
                     list_same.append(i)
@@ -440,10 +458,11 @@ class MainWindow(Base1, Ui_MainWindow):
                 self.tableWidget.setItem(0, 0, QTableWidgetItem(word))
                 self.tableWidget.setItem(0, 1, QTableWidgetItem(frenquency))
 
-    def Compare(self):
+    def Compare(self):  # 对比界面
         self.listWidget.clear()
         self.tableStandard.clear()
         self.tableStudent.clear()
+        self.tableCompare.clear()
         self.setTable()
 
         filename, haha = QFileDialog.getOpenFileName(
@@ -471,7 +490,7 @@ class MainWindow(Base1, Ui_MainWindow):
                 self.listWidget.addItem(
                     i.replace("Standard_Answer", "Question"))
 
-    def Substract(self):
+    def Substract(self):  # 减去常用词
         self.tableStandard.clear()
         self.tableStudent.clear()
         self.tableCompare.clear()
@@ -515,6 +534,7 @@ class MainWindow(Base1, Ui_MainWindow):
                 j, 1, QTableWidgetItem(str(Sub_list2[element])))
             j = j + 1
 
+        global Sub_list_same, Sub_list_different
         Sub_list_same = []
         Sub_list_different = []
         for i in Sub_list1.keys():
@@ -536,7 +556,18 @@ class MainWindow(Base1, Ui_MainWindow):
             self.tableCompare.setItem(j, 1, QTableWidgetItem(element))
             j = j + 1
 
-    def shownew(self):
+    def vis_list(self):
+        global sub
+        sub = "no"
+
+        self.main = Visualise_Window()
+        self.main.show()
+        self.close()
+
+    def vis_sub_list(self):
+        global sub
+        sub = "yes"
+
         self.main = Visualise_Window()
         self.main.show()
         self.close()
@@ -560,11 +591,18 @@ class Visualise_Window(Base2, Vis_Window):
         super(Base2, self).__init__()
         self.setupUi(self)
 
+        # 初始化界面
+        if sub == "yes":
+            Visualise.init(self, Sub_list_same, Sub_list_different)
+
+        if sub == "no":
+            Visualise.init(self, list_same, list_different)
+
+        # 点击事件
         self.pushButton.clicked.connect(self.haha)
 
     def haha(self):
-        a = Question_list
-        print(a)
+        print("haha")
 
 
 if __name__ == "__main__":
