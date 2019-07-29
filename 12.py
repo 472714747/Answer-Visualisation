@@ -1,8 +1,5 @@
 import numpy as np
-x = []
-a = 0
-for i in range(14):
-    x.append(a)
-    a = a + 2
+a = np.arange(0, 27, 3)
 
-print(x)
+b = list(set(a) - set([0, 3, 6, 9]))
+print(b)

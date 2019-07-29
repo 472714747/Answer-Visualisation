@@ -9,7 +9,7 @@ matplotlib.use("Qt5Agg")  # 声明使用QT5
 
 
 class Figure_Canvas(FigureCanvas):
-    def __init__(self, parent=None, width=10, height=5, dpi=100):
+    def __init__(self, parent=None, width=18, height=4.3, dpi=100):
         fig = Figure(figsize=(width, height), dpi=100)
 
         FigureCanvas.__init__(self, fig)
@@ -17,11 +17,15 @@ class Figure_Canvas(FigureCanvas):
 
         self.axes = fig.add_subplot(111)
 
-    def test(self, same):
+    def ShowSame(self, same, Count, Count2):
         myfont = fm.FontProperties(fname='C:/Windows/Fonts/msyh.ttc')
 
-        a = [23, 21, 32, 13, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-        b = [10, 15, 32, 12, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+        a = []
+        b = []
+        for i in same:
+            a.append(dict(Count)[i])
+            b.append(dict(Count2)[i])
+
         width = 0.3
 
         length = len(same)
@@ -31,16 +35,86 @@ class Figure_Canvas(FigureCanvas):
         self.axes.bar(position + width, b, width, label="Students")
         self.axes.set_xticks((position * 2 + width) / 2)
         self.axes.set_xticklabels(same, fontproperties=myfont)
+
+        for i in range(length):
+            self.axes.text(position[i],
+                           a[i] + 0.05,
+                           a[i],
+                           ha='center',
+                           va='bottom')
+            self.axes.text(position[i] + width,
+                           b[i] + 0.05,
+                           b[i],
+                           ha='center',
+                           va='bottom')
+
+        self.axes.legend()
+
+    def ShowDifferent(self, different, Count, Count2):
+        myfont = fm.FontProperties(fname='C:/Windows/Fonts/msyh.ttc')
+
+        a = []
+        b = []
+        x_a = []
+        x_b = []
+        for i in different:
+            if i in dict(Count):
+                a.append(dict(Count)[i])
+                x_a.append(i)
+            else:
+                b.append(dict(Count2)[i])
+                x_b.append(i)
+
+        width = 1
+        length = len(different) * 3
+        length_a = len(x_a)
+
+        position = np.arange(0, length, 3)
+        position_a = list(np.arange(length_a) * 3)
+        position_b = list(set(position) - set(position_a))
+
+        if a != []:
+            self.axes.bar(position_a, a, width, label="Standard")
+        if b != []:
+            self.axes.bar(position_b, b, width, label="Students")
+        self.axes.set_xticks(position_a + position_b)
+        self.axes.set_xticklabels(x_a + x_b, fontproperties=myfont)
+
+        if x_a != []:
+            for i in range(len(x_a)):
+                self.axes.text(position_a[i],
+                               a[i] + 0.05,
+                               a[i],
+                               ha='center',
+                               va='bottom')
+        if x_b != []:
+            for i in range(len(x_b)):
+                self.axes.text(position_b[i],
+                               b[i] + 0.05,
+                               b[i],
+                               ha='center',
+                               va='bottom')
+
         self.axes.legend()
 
 
-def init(self, same, different):
+def init(self, same, different, Count, Count2):
+    if same != []:
+        FigSame = Figure_Canvas()
+        FigSame.ShowSame(same, Count, Count2)
 
-    dr = Figure_Canvas()
+    if different != []:
+        FigDiff = Figure_Canvas()
+        FigDiff.ShowDifferent(different[0:21], Count, Count2)
 
-    dr.test(same)
     graphicscene = QtWidgets.QGraphicsScene()
-    graphicscene.addWidget(dr)
+    graphicscene_2 = QtWidgets.QGraphicsScene()
+
+    graphicscene.addWidget(FigSame)
+    graphicscene_2.addWidget(FigDiff)
 
     self.graphicsView.setScene(graphicscene)
     self.graphicsView.show()
+
+    self.graphicsView_2.setScene(graphicscene_2)
+    self.graphicsView_2.show()

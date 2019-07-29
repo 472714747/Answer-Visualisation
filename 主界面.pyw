@@ -38,6 +38,8 @@ list_different = []
 Sub_list_same = []
 Sub_list_different = []
 sub = ""
+Count = Counter("")
+Count2 = Counter("")
 
 
 class MainWindow(Base1, Ui_MainWindow):
@@ -197,7 +199,7 @@ class MainWindow(Base1, Ui_MainWindow):
                 self.listWidget.addItem(i)
 
     def listWidget_Clicked(self, item):  # 在左面选择一项
-        global Count, Word_frenquency, Word_frenquency2
+        global Count, Count2, Word_frenquency, Word_frenquency2
 
         if filetype == "Questions File (*.exam)":
             self.textEdit_Up.setHtml(Question_list[item.text()])
@@ -305,9 +307,9 @@ class MainWindow(Base1, Ui_MainWindow):
                     text2 = text2 + Answer_list[j] + "     "
 
             Word_frenquency2 = Word_Count.Word_Count(text2)
-            number = min(len(dict(Word_frenquency2)), 200)
+            number = min(len(dict(Word_frenquency2)), 20)
             self.tableStudent.setRowCount(number)
-            Count2 = Word_frenquency2.most_common(200)  # 保存用
+            Count2 = Word_frenquency2.most_common(20)  # 保存用
 
             j = 0
             for i in Count2:
@@ -330,6 +332,15 @@ class MainWindow(Base1, Ui_MainWindow):
                     list_same.append(i)
                 if i not in list2:
                     list_different.append(i)
+
+            for i in list2:
+                if i in list1:
+                    list_same.append(i)
+                if i not in list1:
+                    list_different.append(i)
+
+            list_same = list(set(list_same))
+            list_different = list(set(list_different))
 
             length = max(len(list_same), len(list_different))
             self.tableCompare.setRowCount(length)
@@ -503,7 +514,7 @@ class MainWindow(Base1, Ui_MainWindow):
         file.close()
 
         Word_frenquency = dict(Word_frenquency.most_common(200))
-        Word_frenquency2 = dict(Word_frenquency2.most_common(200))
+        Word_frenquency2 = dict(Word_frenquency2.most_common(20))
         Sub_list1 = {}
         Sub_list2 = {}
 
@@ -537,11 +548,21 @@ class MainWindow(Base1, Ui_MainWindow):
         global Sub_list_same, Sub_list_different
         Sub_list_same = []
         Sub_list_different = []
+
         for i in Sub_list1.keys():
             if i in Sub_list2.keys():
                 Sub_list_same.append(i)
             if i not in Sub_list2.keys():
                 Sub_list_different.append(i)
+
+        for i in Sub_list2.keys():
+            if i in Sub_list1.keys():
+                Sub_list_same.append(i)
+            if i not in Sub_list1.keys():
+                Sub_list_different.append(i)
+
+        Sub_list_same = list(set(Sub_list_same))
+        Sub_list_different = list(set(Sub_list_different))
 
         length = max(len(Sub_list_same), len(Sub_list_different))
         self.tableCompare.setRowCount(length)
@@ -590,13 +611,15 @@ class Visualise_Window(Base2, Vis_Window):
     def __init__(self):
         super(Base2, self).__init__()
         self.setupUi(self)
+        self.showMaximized()
 
         # 初始化界面
         if sub == "yes":
-            Visualise.init(self, Sub_list_same, Sub_list_different)
+            Visualise.init(self, Sub_list_same, Sub_list_different, Count,
+                           Count2)
 
         if sub == "no":
-            Visualise.init(self, list_same, list_different)
+            Visualise.init(self, list_same, list_different, Count, Count2)
 
         # 点击事件
         self.pushButton.clicked.connect(self.haha)
