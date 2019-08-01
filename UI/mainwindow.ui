@@ -34,7 +34,7 @@
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
@@ -312,22 +312,135 @@ padding:2px 4px;</string>
         <string/>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="1" column="3">
-         <widget class="QLabel" name="label">
+        <item row="2" column="4">
+         <widget class="QPushButton" name="pushButton_5">
+          <property name="text">
+           <string>Visualise Subtracted List</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QPushButton" name="pushButton_3">
+          <property name="text">
+           <string>Subtract Common Words</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QPushButton" name="pushButton_4">
+          <property name="text">
+           <string>Visualise List</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QTableWidget" name="tableStandard">
+          <property name="maximumSize">
+           <size>
+            <width>250</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="rowCount">
+           <number>20</number>
+          </property>
+          <attribute name="horizontalHeaderCascadingSectionResizes">
+           <bool>true</bool>
+          </attribute>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <column>
+           <property name="text">
+            <string>Words</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Frequency</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QLabel" name="label_5">
           <property name="font">
            <font>
             <pointsize>12</pointsize>
            </font>
           </property>
           <property name="text">
-           <string>Student Answers</string>
+           <string>Compare</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
-        <item row="2" column="4">
+        <item row="1" column="3">
+         <widget class="QTableWidget" name="tableStudent">
+          <property name="maximumSize">
+           <size>
+            <width>250</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="rowCount">
+           <number>20</number>
+          </property>
+          <attribute name="horizontalHeaderCascadingSectionResizes">
+           <bool>true</bool>
+          </attribute>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <row/>
+          <column>
+           <property name="text">
+            <string>Words</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Frequency</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="1" column="4">
          <widget class="QTableWidget" name="tableCompare">
           <property name="maximumSize">
            <size>
@@ -462,17 +575,7 @@ padding:2px 4px;</string>
           </column>
          </widget>
         </item>
-        <item row="0" column="2" colspan="3">
-         <widget class="QLineEdit" name="lineEdit_3">
-          <property name="styleSheet">
-           <string notr="true">border:1px solid gray;
-width:300px;
-border-radius:7px;
-padding:2px 4px;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
+        <item row="0" column="2">
          <widget class="QLabel" name="label_2">
           <property name="font">
            <font>
@@ -487,131 +590,18 @@ padding:2px 4px;</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="4">
-         <widget class="QLabel" name="label_5">
+        <item row="0" column="3">
+         <widget class="QLabel" name="label">
           <property name="font">
            <font>
             <pointsize>12</pointsize>
            </font>
           </property>
           <property name="text">
-           <string>Compare</string>
+           <string>Student Answers</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="3">
-         <widget class="QTableWidget" name="tableStudent">
-          <property name="maximumSize">
-           <size>
-            <width>250</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="rowCount">
-           <number>20</number>
-          </property>
-          <attribute name="horizontalHeaderCascadingSectionResizes">
-           <bool>true</bool>
-          </attribute>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <column>
-           <property name="text">
-            <string>Words</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Frequency</string>
-           </property>
-          </column>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QTableWidget" name="tableStandard">
-          <property name="maximumSize">
-           <size>
-            <width>250</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="rowCount">
-           <number>20</number>
-          </property>
-          <attribute name="horizontalHeaderCascadingSectionResizes">
-           <bool>true</bool>
-          </attribute>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <row/>
-          <column>
-           <property name="text">
-            <string>Words</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Frequency</string>
-           </property>
-          </column>
-         </widget>
-        </item>
-        <item row="3" column="2">
-         <widget class="QPushButton" name="pushButton_3">
-          <property name="text">
-           <string>Substract Common Words</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="3">
-         <widget class="QPushButton" name="pushButton_4">
-          <property name="text">
-           <string>Visualise List</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="4">
-         <widget class="QPushButton" name="pushButton_5">
-          <property name="text">
-           <string>Visualise Substracted List</string>
           </property>
          </widget>
         </item>

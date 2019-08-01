@@ -69,7 +69,7 @@ class MainWindow(Base1, Ui_MainWindow):
         self.listWidget_2.itemClicked.connect(self.listWidget_2_Clicked)
 
         self.pushButton.clicked.connect(self.detail)
-        self.pushButton_3.clicked.connect(self.Substract)
+        self.pushButton_3.clicked.connect(self.Subtract)
         self.pushButton_4.clicked.connect(self.vis_list)
         self.pushButton_5.clicked.connect(self.vis_sub_list)
 
@@ -501,7 +501,7 @@ class MainWindow(Base1, Ui_MainWindow):
                 self.listWidget.addItem(
                     i.replace("Standard_Answer", "Question"))
 
-    def Substract(self):  # 减去常用词
+    def Subtract(self):  # 减去常用词
         self.tableStandard.clear()
         self.tableStudent.clear()
         self.tableCompare.clear()
