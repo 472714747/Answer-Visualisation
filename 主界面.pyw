@@ -87,14 +87,6 @@ class MainWindow(Base1, Ui_MainWindow):
         self.lineEdit.addAction(myAction, QtWidgets.QLineEdit.TrailingPosition)
         self.lineEdit.returnPressed.connect(self.search)
 
-        # Tab4搜索栏加图标
-        myAction2 = QtWidgets.QAction(self.lineEdit_3)
-        myAction2.setIcon(QtGui.QIcon("./UI/Icons/search.png"))
-        myAction2.triggered.connect(self.search2)
-
-        self.lineEdit_3.addAction(myAction2,
-                                  QtWidgets.QLineEdit.TrailingPosition)
-        self.lineEdit_3.returnPressed.connect(self.search2)
         # 添加阴影
         # effect = QGraphicsDropShadowEffect(self)
         # effect.setBlurRadius(12)
@@ -620,12 +612,6 @@ class Visualise_Window(Base2, Vis_Window):
 
         if sub == "no":
             Visualise.init(self, list_same, list_different, Count, Count2)
-
-        # 点击事件
-        self.pushButton.clicked.connect(self.haha)
-
-    def haha(self):
-        print("haha")
 
 
 if __name__ == "__main__":
