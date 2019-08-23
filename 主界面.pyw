@@ -30,8 +30,8 @@ Status = ""
 Student_number = ""
 listWidget_Text = ""
 Count = {}
-Word_frenquency = Counter()
-Word_frenquency2 = Counter()
+Word_frequency = Counter()
+Word_frequency2 = Counter()
 Question_number = ""
 list_same = []
 list_different = []
@@ -191,7 +191,7 @@ class MainWindow(Base1, Ui_MainWindow):
                 self.listWidget.addItem(i)
 
     def listWidget_Clicked(self, item):  # 在左面选择一项
-        global Count, Count2, Word_frenquency, Word_frenquency2
+        global Count, Count2, Word_frequency, Word_frequency2
 
         if filetype == "Questions File (*.exam)":
             self.textEdit_Up.setHtml(Question_list[item.text()])
@@ -251,15 +251,15 @@ class MainWindow(Base1, Ui_MainWindow):
                 if Question == QuestionOfStudent:
                     text = text + Answer_list[j] + "     "
 
-            Word_frenquency = Word_Count.Word_Count(text)
-            Count = Word_frenquency.most_common(200)  # 保存用
+            Word_frequency = Word_Count.Word_Count(text)
+            Count = Word_frequency.most_common(200)  # 保存用
 
             j = 0
-            for i in Word_frenquency.most_common(20):
+            for i in Word_frequency.most_common(20):
                 word = i[0]
-                frenquency = str(i[1])
+                frequency = str(i[1])
                 self.tableWidget.setItem(j, 0, QTableWidgetItem(word))
-                self.tableWidget.setItem(j, 1, QTableWidgetItem(frenquency))
+                self.tableWidget.setItem(j, 1, QTableWidgetItem(frequency))
                 j = j + 1
 
         if Status == "Compare":
@@ -269,23 +269,24 @@ class MainWindow(Base1, Ui_MainWindow):
             self.tableStandard.clear()
             self.tableStudent.clear()
             self.tableCompare.clear()
+            self.setTable()
 
             # 标准答案。
             i = item.text()
             Question = i.replace("Question", "Standard_Answer")
             text = Standard_list[Question]
 
-            Word_frenquency = Word_Count.Word_Count(text)
-            number = min(len(dict(Word_frenquency)), 200)
+            Word_frequency = Word_Count.Word_Count(text)
+            number = min(len(dict(Word_frequency)), 200)
             self.tableStandard.setRowCount(number)
-            Count = Word_frenquency.most_common(200)  # 保存用
+            Count = Word_frequency.most_common(200)  # 保存用
 
             j = 0
             for i in Count:
                 word = i[0]
-                frenquency = str(i[1])
+                frequency = str(i[1])
                 self.tableStandard.setItem(j, 0, QTableWidgetItem(word))
-                self.tableStandard.setItem(j, 1, QTableWidgetItem(frenquency))
+                self.tableStandard.setItem(j, 1, QTableWidgetItem(frequency))
                 j = j + 1
 
             # 学生答案
@@ -298,17 +299,17 @@ class MainWindow(Base1, Ui_MainWindow):
                 if Question == QuestionOfStudent:
                     text2 = text2 + Answer_list[j] + "     "
 
-            Word_frenquency2 = Word_Count.Word_Count(text2)
-            number = min(len(dict(Word_frenquency2)), 20)
+            Word_frequency2 = Word_Count.Word_Count(text2)
+            number = min(len(dict(Word_frequency2)), 20)
             self.tableStudent.setRowCount(number)
-            Count2 = Word_frenquency2.most_common(20)  # 保存用
+            Count2 = Word_frequency2.most_common(20)  # 保存用
 
             j = 0
             for i in Count2:
                 word = i[0]
-                frenquency = str(i[1])
+                frequency = str(i[1])
                 self.tableStudent.setItem(j, 0, QTableWidgetItem(word))
-                self.tableStudent.setItem(j, 1, QTableWidgetItem(frenquency))
+                self.tableStudent.setItem(j, 1, QTableWidgetItem(frequency))
                 j = j + 1
 
             # 对比
@@ -388,7 +389,7 @@ class MainWindow(Base1, Ui_MainWindow):
             if "Question" in i and "." in i and i != "Question4.1":
                 self.listWidget.addItem(i)
 
-    def textCopy_Up(self, status):  # 取词查频
+    def textCopy_Up(self, status):  # 上面取词查频
         if status is True:
             self.textEdit_2_Up.copy()
             command = QApplication.clipboard().text()
@@ -403,8 +404,8 @@ class MainWindow(Base1, Ui_MainWindow):
                 if Question == QuestionOfStudent:
                     text = text + Answer_list[j] + "     "
 
-            Word_frenquency = Word_Count.Word_Count(text)
-            word_list = dict(Word_frenquency.most_common(1000))
+            Word_frequency = Word_Count.Word_Count(text)
+            word_list = dict(Word_frequency.most_common(1000))
 
             if original in word_list.keys():
                 self.lineEdit_2.setText("The word " + "\"" + command + "\"" +
@@ -415,7 +416,7 @@ class MainWindow(Base1, Ui_MainWindow):
                 self.lineEdit_2.setText("The word " + "\"" + command + "\"" +
                                         " doesn't appear in students' answers")
 
-    def textCopy_Down(self, status):  # 取词查频
+    def textCopy_Down(self, status):  # 下面取词查频
         if status is True:
             self.textEdit_2_Down.copy()
             command = QApplication.clipboard().text()
@@ -430,8 +431,8 @@ class MainWindow(Base1, Ui_MainWindow):
                 if Question == QuestionOfStudent:
                     text = text + Answer_list[j] + "     "
 
-            Word_frenquency = Word_Count.Word_Count(text)
-            word_list = dict(Word_frenquency.most_common(1000))
+            Word_frequency = Word_Count.Word_Count(text)
+            word_list = dict(Word_frequency.most_common(1000))
 
             if original in word_list.keys():
                 self.lineEdit_2.setText("The word " + "\"" + command + "\"" +
@@ -448,18 +449,18 @@ class MainWindow(Base1, Ui_MainWindow):
         for i in Count:
             if i[0] == self.lineEdit.text():
                 word = self.lineEdit.text()
-                frenquency = str(i[1])
+                frequency = str(i[1])
                 self.tableWidget.setItem(0, 0, QTableWidgetItem(word))
-                self.tableWidget.setItem(0, 1, QTableWidgetItem(frenquency))
+                self.tableWidget.setItem(0, 1, QTableWidgetItem(frequency))
 
     def search2(self):
         self.tableWidget.clear()
         for i in Count:
             if i[0] == self.lineEdit.text():
                 word = self.lineEdit.text()
-                frenquency = str(i[1])
+                frequency = str(i[1])
                 self.tableWidget.setItem(0, 0, QTableWidgetItem(word))
-                self.tableWidget.setItem(0, 1, QTableWidgetItem(frenquency))
+                self.tableWidget.setItem(0, 1, QTableWidgetItem(frequency))
 
     def Compare(self):  # 对比界面
         self.listWidget.clear()
@@ -499,24 +500,24 @@ class MainWindow(Base1, Ui_MainWindow):
         self.tableCompare.clear()
         self.pushButton_3.setEnabled(False)
         self.setTable()
-        global Word_frenquency, Word_frenquency2
+        global Word_frequency, Word_frequency2
 
         file = open("./Spider/Normal_Words.csv")
         a = file.read().split()
         file.close()
 
-        Word_frenquency = dict(Word_frenquency.most_common(200))
-        Word_frenquency2 = dict(Word_frenquency2.most_common(20))
+        Word_frequency = dict(Word_frequency.most_common(200))
+        Word_frequency2 = dict(Word_frequency2.most_common(20))
         Sub_list1 = {}
         Sub_list2 = {}
 
-        for element in Word_frenquency.keys():
+        for element in Word_frequency.keys():
             if element not in a:
-                Sub_list1[element] = Word_frenquency[element]
+                Sub_list1[element] = Word_frequency[element]
 
-        for element in Word_frenquency2.keys():
+        for element in Word_frequency2.keys():
             if element not in a:
-                Sub_list2[element] = Word_frenquency2[element]
+                Sub_list2[element] = Word_frequency2[element]
 
         number1 = len(Sub_list1)
         number2 = len(Sub_list2)
